@@ -1,0 +1,2 @@
+npx create-next-app@latest			-Permite crear la aplicación
+npm install next-auth				-Permite agregar autenticación a una aplicación
