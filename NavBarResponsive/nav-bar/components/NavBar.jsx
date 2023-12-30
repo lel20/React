@@ -12,7 +12,7 @@ export default function NavBar() {
             <div >
                 <Link className='flex gap-3' href="/">
                     <img src="" alt="LogoNav" />
-                    <p>NavBar</p>
+                    <p>E-chomerce</p>
                 </Link>
             </div>
             <div className='flex ms-auto'>

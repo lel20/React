@@ -1,8 +1,9 @@
 export default function page() {
     return (
         <div>
-            <h1>Registrarse</h1>
-
+            <h1>
+                Editar producto
+            </h1>
         </div>
     );
 }
