@@ -8,12 +8,12 @@ export async function POST(request) {
   const { first_name, last_name, email, password, password2 } = await request.json();
   if (password != password2)
     return NextResponse.json(
-      { message: "Las contraseñas no son iguales" },
+      { message: "Las contraseñas no coinciden" },
       { status: 400 });
   try {
     const user_find = await User.findOne({ email });
     if (user_find)
-      return NextResponse.json({ message: "Usuario existente" }, {
+      return NextResponse.json({ message: "El usuario con este email ya existente!!" }, {
         status: 400
       });
     const hashPassword = await bcrypt.hash(password, 12);
@@ -24,15 +24,10 @@ export async function POST(request) {
       password: hashPassword
 
     });
-    const usersave = await user.save();
-  console.log(usersave)
-  return NextResponse.json({ message: 'signup' });
-
+    await user.save();
+    return NextResponse.json({ message: 'Usuario registrado correctamente' });
   } catch (error) {
     console.log(error);
     return NextResponse.error();
   }
-
-
-  
-}
+};

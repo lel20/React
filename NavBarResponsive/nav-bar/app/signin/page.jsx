@@ -5,19 +5,6 @@ export default function page() {
       <form className="shadow-xl border-separate px-4 rounded w-2/5 mt-4" action="">
         <div className="mb-4">
           <input className="my-3 border rounded w-full py-2 px-2 focus:outline-none focus:shadow-lg"
-            name="first_name"
-            id="first_name"
-            type="text"
-            placeholder="Ingrese su nombre"
-            required
-          />
-          <input className="my-3 border rounded w-full py-2 px-2 focus:outline-none focus:shadow-lg"
-            name="last_name"
-            id="last_name"
-            type="text"
-            placeholder="Ingrese sus apellidos"
-          />
-          <input className="my-3 border rounded w-full py-2 px-2 focus:outline-none focus:shadow-lg"
             name="email"
             id="email"
             type="email"
