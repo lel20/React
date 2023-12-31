@@ -23,10 +23,10 @@ export default function NavBar() {
                     <Link className={pathname.includes('/productos') ? activeLink : inactiveLink} href='/productos' >
                         <li>Productos</li>
                     </Link>
-                    <Link className={pathname.includes('/iniciarsesion') ? activeLink : inactiveLink} href='/iniciarsesion'>
+                    <Link className={pathname.includes('/signin') ? activeLink : inactiveLink} href='/signin'>
                         <li>Iniciar</li>
                     </Link>
-                    <Link className={pathname.includes('/registrarse') ? activeLink : inactiveLink} href='registrarse'>
+                    <Link className={pathname.includes('/signup') ? activeLink : inactiveLink} href='signup'>
                         <li>Registarse</li>
                     </Link>
                 </ul>
