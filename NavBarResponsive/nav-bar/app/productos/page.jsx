@@ -1,14 +1,25 @@
+
 import CardProdut from "@/components/productos/CardProdut";
 import { Noto_Sans } from 'next/font/google'
 import Link from "next/link";
+import axios, { AxiosError } from 'axios';
 const noto_sans = Noto_Sans({
   weight: ["100"],
   style: ["normal"],
   subsets: ["latin"]
-
 });
-export default function page() {
+const productos = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/products');
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
+async function page() {
+  const datos = await productos();
   return (
     <div className=" container flex flex-col mx-auto gap-2">
       <Link
@@ -17,11 +28,14 @@ export default function page() {
         type="button">+ Nuevo Producto
       </Link>
       <div className="flex gap-3">
-        <CardProdut />
-        <CardProdut />
+        {datos.map((dato) => (
+          <CardProdut
+            task={dato}
+            key={dato._id}
+          />
+        ))}
       </div>
-
     </div>
-
   );
 }
+export default page;
