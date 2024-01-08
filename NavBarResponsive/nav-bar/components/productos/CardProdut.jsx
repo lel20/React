@@ -1,9 +1,19 @@
 'use client'
 import Image from 'next/image'
 import { Botons } from './Botons';
-export default function CardProdut({task}) {
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+export default function CardProdut({ task }) {
+    const router = useRouter();
+    const deleteProduct = async (event) => {
+        console.log(task.codigo);
+        const deleteProduct = await axios.delete(`/api/products/${task.codigo}`);
+        console.log(deleteProduct);
+        router.refresh();
+
+    }
     return (
-        <div className="bg-slate-200 max-w-sm rounded overflow-hidden shadow-lg mt-3">
+        <div className="bg-slate-200 max-w-sm rounded  shadow-lg mt-3">
             <Image
                 src="/next.svg"
                 width={500}
@@ -17,16 +27,8 @@ export default function CardProdut({task}) {
                 </p>
             </div>
             <div className="px-6 pt-4 pb-2 flex justify-center gap-4">
-                <Botons
-                    bg="bg-green-500"
-                    name="Editar"
-                    link="/productos/editproduct"
-                />
-                <Botons
-                    bg ="bg-red-500"
-                    name="Borar"
-                    link="/productos/editproduct"
-                />
+                
+                <button onClick={deleteProduct} className="bg-red-500 py-1 px-2  text-white text-center rounded"> Borrar</button>
             </div>
         </div>
     );
